@@ -1,19 +1,12 @@
 import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import './App.scss';
-import Form from "./components/Forms";
-import Teacher from "./components/Teacher";
-import Students from "./components/Students";
+import './App.css';
+import { Form } from "react-router-dom";
+import { Students } from "./Student";
+import { initialValue } from "./personaldata";
 
-const initialValue = {
-  firstname: "",
-  lastname: "",
-  email: "",
- specialty:"",
- profession:"",
- point:"", 
-};
+
 
 
 
@@ -36,9 +29,9 @@ function App() {
             </nav>
 
             <Routes>
-              <Route path="/" element={<Form inputValue={inputValue} setInputValue={setInputValue} />} />
-              <Route path="/teacher" element={<Teacher data={inputValue} />} />
-              <Route path="/students" element={<Students data={inputValue} />} />
+              <Route path="/" element={<Form inputValue={inputValue} setInputValue={setInputValue} />} /> 
+              <Route path="/teacher" element={<Teacher data={inputValue} />} />  
+              <Route path="/students" element={<Students data={inputValue} />} />  
             </Routes>
           </div>
         </BrowserRouter>
